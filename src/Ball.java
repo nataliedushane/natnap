@@ -23,8 +23,8 @@ public class Ball{
     public void moveBall(JPanel bPanel){
         x+=xSpeed;
         y+=ySpeed;
-        if(x>=bPanel.getWidth()-size||x<=0){
-            xSpeed*=-1;
+        if(x>=bPanel.getWidth()||x<=0){
+            x=0;
         }
         if(y>=bPanel.getHeight()-size||y<0){
             ySpeed*=-1;
@@ -32,9 +32,15 @@ public class Ball{
     }
     public void moveRight(){
         x=x+xSpeed;
+        if(x>=bPanel.getWidth()){
+            x=0;
+        }
     }
     public void moveLeft(){
         x=x-xSpeed;
+        if(x<=0){
+            x=bPanel.getWidth();
+        }
     }
     public void moveUp(){
         y=y-ySpeed;
